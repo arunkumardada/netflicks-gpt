@@ -1,6 +1,9 @@
 # Created app using create-react-app
 
 - Configured Tailwind css
+- Header
+- Login Form
+- Signup Form
 
 # Features
 
