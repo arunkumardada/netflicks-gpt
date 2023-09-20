@@ -17,6 +17,12 @@ const Login = () => {
     console.log(email.current.value, password.current.value);
     const message = checkValidData(email.current.value, password.current.value);
     setErrorMessage(message);
+
+    if (message) {
+      return;
+    }
+
+    // Signin / Signup the Page
   };
   return (
     <div>
