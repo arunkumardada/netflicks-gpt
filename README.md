@@ -19,6 +19,7 @@
 - BugFix: If user is not logged in=> Redirect user /browse to login / page and viceversa
 - Unsubscribed to the onAuthStateChanged Callback
 - Hardcoding values keeping it in constants file.
+- Get data from TMDM Now Playing API in browse
 
 # Features
 
