@@ -20,6 +20,14 @@
 - Unsubscribed to the onAuthStateChanged Callback
 - Hardcoding values keeping it in constants file.
 - Get data from TMDM Now Playing API in browse
+- Created Custom Hook for now playing movies
+- update store with movies data
+- create movie slice
+- Planning for Main Container and seconcdary container
+- Fetch Data for Trailer Video
+- Update Store with Trailer Video Data
+- Embedded Youtube Video and make it autoplay and mute
+- Tailwind Classes to look main container awesome
 
 # Features
 
