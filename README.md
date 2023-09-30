@@ -30,6 +30,10 @@
 - Tailwind Classes to look main container awesome
 - Create movie suggestions list
 - Create SEcondary container
+- Build Movies List
+- Build Movie Card
+- TMDB Image Card CDN
+- Made the Browse Page amazing with tailwind
 
 # Features
 
