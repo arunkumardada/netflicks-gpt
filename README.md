@@ -28,6 +28,8 @@
 - Update Store with Trailer Video Data
 - Embedded Youtube Video and make it autoplay and mute
 - Tailwind Classes to look main container awesome
+- Create movie suggestions list
+- Create SEcondary container
 
 # Features
 
