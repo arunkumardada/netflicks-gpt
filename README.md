@@ -34,6 +34,11 @@
 - Build Movie Card
 - TMDB Image Card CDN
 - Made the Browse Page amazing with tailwind
+- usePopularMovies/useTopRated/useUpcoming/ useNowPlaying customhook
+
+- GPT SearchFeature
+- Added GPT Search Button
+- Created GPT Slice and Reducer to Show Search Bar and movie suggestions
 
 # Features
 

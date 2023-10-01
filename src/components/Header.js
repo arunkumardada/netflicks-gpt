@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { LOGO } from "../utils/constants";
+import { toggleGPTSearchView } from "../utils/gptSlice";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -23,6 +24,10 @@ const Header = () => {
       .catch((error) => {
         // An error happened.
       });
+  };
+
+  const handleToggleSearchGPTClick = () => {
+    dispatch(toggleGPTSearchView());
   };
 
   useEffect(() => {
@@ -53,6 +58,12 @@ const Header = () => {
 
       {user && (
         <div className="flex p-2">
+          <button
+            className="py-2 px-4 m-2 mx-2 my-2 bg-orange-500 text-white rounded-lg cursor-pointer"
+            onClick={handleToggleSearchGPTClick}
+          >
+            GPT Search
+          </button>
           <img className="w-12 h-12" src={user.photoURL} alt="signout-logo" />
           <button className="font-bold text-white" onClick={handleSignOut}>
             {" "}
