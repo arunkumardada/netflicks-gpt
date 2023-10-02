@@ -39,6 +39,7 @@
 - GPT SearchFeature
 - Added GPT Search Button
 - Created GPT Slice and Reducer to Show Search Bar and movie suggestions
+- Multi Language for GPT Search bar
 
 # Features
 

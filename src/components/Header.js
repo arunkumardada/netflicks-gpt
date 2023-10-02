@@ -8,14 +8,16 @@ import { useSelector } from "react-redux";
 
 import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
-import { LOGO } from "../utils/constants";
+import { LOGO, supportedLanguages } from "../utils/constants";
 import { toggleGPTSearchView } from "../utils/gptSlice";
+import { changeLanguage } from "../utils/configSlice";
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const user = useSelector((store) => store.user);
+  const showGPTSearch = useSelector((store) => store.gpt.showGPTSearch);
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
@@ -28,6 +30,10 @@ const Header = () => {
 
   const handleToggleSearchGPTClick = () => {
     dispatch(toggleGPTSearchView());
+  };
+
+  const handleLanguageChange = (event) => {
+    dispatch(changeLanguage(event.target.value));
   };
 
   useEffect(() => {
@@ -58,11 +64,23 @@ const Header = () => {
 
       {user && (
         <div className="flex p-2">
+          {showGPTSearch && (
+            <select
+              className="p-2 bg-gray-800 text-white m-2 rounded-lg"
+              onChange={handleLanguageChange}
+            >
+              {supportedLanguages.map((lang) => (
+                <option key={lang.identifier} value={lang.identifier}>
+                  {lang.name}
+                </option>
+              ))}
+            </select>
+          )}
           <button
             className="py-2 px-4 m-2 mx-2 my-2 bg-orange-500 text-white rounded-lg cursor-pointer"
             onClick={handleToggleSearchGPTClick}
           >
-            GPT Search
+            {showGPTSearch ? "HomePage" : "GPT Search"}
           </button>
           <img className="w-12 h-12" src={user.photoURL} alt="signout-logo" />
           <button className="font-bold text-white" onClick={handleSignOut}>
