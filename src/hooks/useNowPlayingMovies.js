@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { API_OPTIONS } from "../utils/constants";
 import { addNowPlayingMovies } from "../utils/moviesSlice";
 
 // Custom Hook
 const useNowPlayingMovies = () => {
+  const nowPlayingMovies = useSelector(
+    (store) => store.movies.useNowPlayingMovies
+  );
   // Fetch Data from TMDB API and update Store
   const dispatch = useDispatch();
   const getNowPlayingMovies = async () => {
@@ -17,7 +20,10 @@ const useNowPlayingMovies = () => {
   };
 
   useEffect(() => {
-    getNowPlayingMovies();
+    // Make API Call only if nowPlayingMovies is null to reduce unncessary API Calls
+    if (!nowPlayingMovies) {
+      getNowPlayingMovies();
+    }
   }, []);
 };
 

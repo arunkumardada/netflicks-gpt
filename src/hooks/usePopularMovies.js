@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { API_OPTIONS } from "../utils/constants";
 import { addPopularMovies } from "../utils/moviesSlice";
 
 // Custom Hook
 const usePopularMovies = () => {
   // Fetch Data from TMDB API and update Store
+
+  const popularMovies = useSelector((store) => store.movies.popularMovies);
   const dispatch = useDispatch();
   const getPopularMovies = async () => {
     const data = await fetch(
@@ -17,7 +19,11 @@ const usePopularMovies = () => {
   };
 
   useEffect(() => {
-    getPopularMovies();
+    // Make API Call only if popularMovies is null to reduce unncessary API Calls
+
+    if (!popularMovies) {
+      getPopularMovies();
+    }
   }, []);
 };
 

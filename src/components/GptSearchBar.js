@@ -12,7 +12,7 @@ const GptSearchBar = () => {
   const searchText = useRef(null);
 
   const gptQuery =
-    "Act as a Movie Recommendation System and suggest some movies for the query" +
+    "Act as a Movie Recommendation System and suggest some movies for the query " +
     searchText?.current?.value +
     ".Only Give me 5 movie names, comma separated like the example given ahead. Example: 'Nishabd', 'Sarkaar','Bahubali','RRR', 'Geethanjali'";
   const handleGptSearchClick = async () => {

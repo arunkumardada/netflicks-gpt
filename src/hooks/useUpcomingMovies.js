@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { API_OPTIONS } from "../utils/constants";
 import { addUpComingMovies } from "../utils/moviesSlice";
 
 // Custom Hook
 const useUpComingMovies = () => {
+  const upComingMovies = useSelector((store) => store.movies.upComingMovies);
+
   // Fetch Data from TMDB API and update Store
   const dispatch = useDispatch();
   const getUpComingMovies = async () => {
@@ -17,7 +19,9 @@ const useUpComingMovies = () => {
   };
 
   useEffect(() => {
-    getUpComingMovies();
+    //  Make API Call only if upComingMovies is null to reduce unncessary API Calls
+
+    if (!upComingMovies) getUpComingMovies();
   }, []);
 };
 

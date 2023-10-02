@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { API_OPTIONS } from "../utils/constants";
 import { addTopRatedMovies } from "../utils/moviesSlice";
 
 // Custom Hook
 const useTopRatingMovies = () => {
+  const topRatedMovies = useSelector((store) => store.movies.topRatedMovies);
+
   // Fetch Data from TMDB API and update Store
   const dispatch = useDispatch();
   const getTopRatedMovies = async () => {
@@ -17,7 +19,11 @@ const useTopRatingMovies = () => {
   };
 
   useEffect(() => {
-    getTopRatedMovies();
+    //  Make API Call only if topRatedMovies is null to reduce unncessary API Calls
+
+    if (!topRatedMovies) {
+      getTopRatedMovies();
+    }
   }, []);
 };
 

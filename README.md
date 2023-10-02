@@ -41,6 +41,8 @@
 - Created GPT Slice and Reducer to Show Search Bar and movie suggestions
 - Multi Language for GPT Search bar
 - Movie Suggestions Show based on Search Input in GPT Search Bar.
+- Securing our API Keys
+-
 
 # Features
 
