@@ -9,6 +9,11 @@
 - useRef Hook
 - Firebase setup
 - Deploying app to production
+  (firebase login
+  firebase init
+  npm run build
+  firebase deploy
+  )
 - Create Signup User account
 - Implement Signin user API
 - created redux Store using userSlice
